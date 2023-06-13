@@ -1,0 +1,10 @@
+<div #containerRef class="item-container">
+  <div (click)="onClick()" (mouseenter)="onMouseenter()">
+
+    <div class="text">
+      <span *ngIf="cfg.debugMode" class="debug-text">{{index}}({{item.top + ',' + item.left}})<br></span>
+      <app-text-tokens-block [textArray]="item.displayNames" [config]="textTokensBlockConfig">
+      </app-text-tokens-block>
+    </div>
+  </div>
+</div>

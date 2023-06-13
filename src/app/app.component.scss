@@ -1,0 +1,98 @@
+
+@import 'src/styles/component.scss';
+
+html {
+  background-color: white; // $divider-color;
+}
+
+.main-layout{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.sticky-header-bar {
+  margin:0 auto;
+  width:100%;
+}
+
+.mat-sidenav-container {
+  margin:0 auto;
+  width:100%;
+  max-width: 2000px;
+  min-width: 150px;
+  overflow: hidden;
+}
+
+
+.mat-sidenav {
+  position: fixed;
+  // height:100vh;
+  margin:0;
+  padding:0;
+}
+
+
+
+
+
+
+.mat-sidenav-content {
+  margin-top:0;
+  padding-top:0;
+  background-color: white; //$divider-color;
+}
+
+// .container-double-bottom{
+//   margin-bottom: $gap * 2;
+// }
+@media screen and (min-width: 960px) {
+  .mat-sidenav {
+    // top:119px!important;
+    // 隱藏滾動條
+    // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+    overflow: hidden;
+  }
+  .sidenav-menu {
+    // 隱藏滾動條
+    // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -107px!important; /* Increase/Decrease this value for cross-browser compatibility */
+    overflow-y: scroll;
+  }
+
+  // .container-double-bottom{
+  //   margin-bottom: $lgap * 2;
+  // }
+}
+
+.scroll-up-button {
+  z-index:99;   // for top button
+  position: fixed!important;
+  right: $gap*2;
+  bottom: 46px;
+  div {
+    // font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--accent-color);
+    // border:1px solid white;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    border:3px solid var(--primary-color);
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    -o-transition: opacity 200ms ease-in;
+    -ms-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
+
+    // text-transform: uppercase;
+    // text-decoration: none;
+  }
+}
+
+

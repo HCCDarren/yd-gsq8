@@ -1,0 +1,10 @@
+<div *ngIf="(menuStore.state$|async).menu" class="container">
+  <div class="main-menu">
+    <div class="container" fxLayout="row" fxLayoutAlign="start start">
+      {{(menuStore.state$|async).menu.label}}
+    </div>
+    <ng-material-multilevel-menu [configuration]='config' [items]='(menuStore.state$|async).menu.items'
+      (selectedItem)="selectedItem($event)" (selectedLabel)="selectedLabel($event)">
+    </ng-material-multilevel-menu>
+  </div>
+</div>

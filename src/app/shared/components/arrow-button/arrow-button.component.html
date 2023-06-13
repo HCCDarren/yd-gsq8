@@ -1,0 +1,5 @@
+<div class="arrow" (click)="click()"
+  [ngClass]="{'right': direction===right, 'left': direction===left, 'disabled': disabled, 'accent': color.toLowerCase()==='accent', 'primary': color.toLowerCase()==='primary'}">
+  <div class="line top-line"></div>
+  <div class="line bottom-line"></div>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="sheet" class="container">
+  <app-section-title *ngIf="sheet.queryName" [sectionTitle]="sheet.queryName" [borderColor]="'accent'" [hasMore]="false">
+  </app-section-title>
+  <div class="container">
+    <app-markdown *ngIf="sheet.description" [mdData]="sheet.description"></app-markdown>
+    <div class="container-double-bottom"></div>
+    <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="2vw" fxLayoutGap.gt-xs="16px">
+      <div fxFlex="0 1 0" *ngIf="sheet.keyColumns">
+        <app-gsq-sheet-query [sheet]="sheet" [buttonLabel]="buttonLabel" (querySubmit)="onQuerySubmit($event)"></app-gsq-sheet-query>
+      </div>
+      <div fxFlex="grow" *ngIf="sheet.valueColumns">
+        <div *ngIf="keyValues">
+          <app-gsq-sheet-data [sheet]="sheet" [keyValues]="keyValues"></app-gsq-sheet-data>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

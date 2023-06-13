@@ -1,0 +1,38 @@
+.itemRef {
+  margin:0;
+  padding:0;
+  position: absolute;
+}
+
+.item-container {
+  margin:0;
+  padding:0;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.item-container > div {
+  height: 95%;
+  width: 95%;
+  position: relative;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.text {
+  // font-size: 4.5vw;
+  line-height: 1.1;
+  text-align: center;
+  transform: rotate(-45deg);
+}
+
+.debug-text {
+  font-size: 1vw;
+}
+
+
+.sub-item-container {
+  cursor: pointer;
+  z-index: 10; // sub item is on top of  items
+}

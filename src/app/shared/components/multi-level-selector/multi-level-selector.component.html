@@ -1,0 +1,4 @@
+<div class="mls-container relative" [ngClass]="{'disabled': isDisabled}">
+  <app-mls-item-container [item]="item" [index]="i" *ngFor="let item of ((mlsStore.state$|async).items); let i = index">
+  </app-mls-item-container>
+</div>

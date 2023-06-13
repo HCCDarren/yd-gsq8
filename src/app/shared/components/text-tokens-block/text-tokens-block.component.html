@@ -1,0 +1,5 @@
+<div #containerRef>
+  <div *ngIf="tokenArray" fxLayout="column" fxLayoutAlign="start stretch">
+    <div *ngFor="let token of tokenArray" [ngClass]="{'full-justify': config.fullJustify}">{{token}}</div>
+  </div>
+</div>

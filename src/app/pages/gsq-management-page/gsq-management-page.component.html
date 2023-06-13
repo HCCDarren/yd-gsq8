@@ -1,0 +1,6 @@
+<div class="container" *ngIf="title">
+  <app-feature-title [featureTitle]="title"></app-feature-title>
+</div>
+<div *ngFor="let sheet of sheets | sort: [{num:1}]">
+  <app-gsq-sheet [sheet]="sheet" [title]="title"></app-gsq-sheet>
+</div>

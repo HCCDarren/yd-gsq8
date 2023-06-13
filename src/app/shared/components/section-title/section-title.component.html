@@ -1,0 +1,9 @@
+<div class="section-header" [ngClass]="{'bottom-border-accent': borderColor.toLowerCase() === 'accent'}">
+  <div fxLayout="row" fxLayoutAlign="space-between end" class="container-sides">
+    <h1 *ngIf="!hasMore">{{sectionTitle}}</h1>
+    <a *ngIf="hasMore" (click)="moreClick.emit()">
+      <h1>{{sectionTitle}}</h1>
+    </a>
+    <app-more *ngIf="hasMore" (click)="moreClick.emit()"></app-more>
+  </div>
+</div>

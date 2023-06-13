@@ -1,0 +1,29 @@
+<div *ngIf="sheet" class="container">
+  <app-section-title [sectionTitle]="'校公車路線查詢'" [borderColor]="'accent'" [hasMore]="false"></app-section-title>
+  <div class="container-sides">
+    <app-markdown [mdData]="sheet.description"></app-markdown>
+    <div class="container-double-bottom"></div>
+    <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="2vw" fxLayoutGap.gt-xs="16px">
+      <div fxFlex="0 1 0">
+        <app-gsq-sheet-query [sheet]="sheet" (querySubmit)="onQuerySubmit($event)"></app-gsq-sheet-query>
+      </div>
+      <div *ngIf="keyValues" fxFlex="grow">
+        <div *ngIf="sheets[0] as sheet">
+          <h3>{{sheet['order']}}. {{sheet.name+'結果'}}</h3>
+          <div class="container-bottom"></div>
+          <app-gsq-sheet-data [sheet]="sheet" [keyValues]="keyValues"></app-gsq-sheet-data>
+          <div class="container-double-bottom"></div>
+        </div>
+
+        <div *ngIf="sheets[1] as sheet">
+          <h3>{{sheet['order']}}. {{sheet.name+'結果'}}</h3>
+          <div class="container-bottom"></div>
+          <app-gsq-sheet-data [sheet]="sheet" [keyValues]="keyValues"></app-gsq-sheet-data>
+          <div class="container-double-bottom"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-double-bottom"></div>

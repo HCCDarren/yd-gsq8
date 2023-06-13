@@ -1,0 +1,84 @@
+@import 'src/styles/component.scss';
+
+footer {
+  margin:0!important;
+  padding:0!important;
+}
+.footer-menu {
+  margin:0!important;
+  padding:30px 30px!important;
+  background-color: $primary-color;
+  color:white;
+  border: 1px solid grey;
+  .menu {
+    border-bottom: 1px solid white;
+    width:100%;
+    padding:$gap 0!important;
+    span {
+      font-size:1.5em;
+    }
+  }
+  @media screen and (min-width: 960px) {
+    .menu {
+      border-bottom: none;
+      span {
+        font-size:1.2em;
+      }
+    }
+  }
+  .social {
+    margin:0!important;
+    padding:10px 0!important;
+    .social-icon {
+      margin:0!important;
+      padding:0!important;
+      width:35px;
+      height:35px;
+      img {
+        width:35px;
+        height:35px;
+      }
+    }
+  }
+}
+
+
+
+
+.footer-address {
+  padding: 20px 0 50px 0;
+  margin:0;
+  background-color: darkgray;
+  color:white;
+  font-style: normal;
+  .address-block {
+    padding: 0;
+    margin:0;
+    display: inline-block;
+    .school-name {
+      font-size:8vw;
+    }
+    .school-address {
+      font-size:2.8vw;
+      div {
+        line-height: 2;
+      }
+    }
+  }
+  @media screen and (min-width: 960px) {
+    .address-block {
+      display: block;
+      width:100%;
+      .school-name {
+        font-size:2em;
+      }
+      .school-address {
+        font-size:0.85em;
+      }
+    }
+  }
+}
+
+.footer-mark {
+  font-size: 1.8em;
+}

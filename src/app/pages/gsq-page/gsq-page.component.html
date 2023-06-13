@@ -1,0 +1,17 @@
+<div class="container" *ngIf="title">
+  <app-feature-title [featureTitle]="title"></app-feature-title>
+  <div class="container" *ngIf="description">
+    <app-markdown [mdData]="description"></app-markdown>
+  </div>
+</div>
+
+<div *ngIf="errMsg">
+  <div class="container">{{errMsg}}</div>
+</div>
+<div *ngIf="!errMsg">
+  <app-gsq-button-list [buttonList]="buttonList"></app-gsq-button-list>
+  <div class="container-4times-bottom"></div>
+  <div *ngFor="let sheet of sheets | sort: [{num:1}]">
+    <app-gsq-sheet [sheet]="sheet" [buttonLabel]="queryButtonLabel"></app-gsq-sheet>
+  </div>
+</div>

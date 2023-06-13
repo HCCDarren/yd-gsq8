@@ -1,0 +1,33 @@
+@import 'src/styles/component.scss';
+
+
+.main-menu {
+  margin: 0 0 $gap*10 0;
+}
+
+mat-nav-list {
+  background-color:var(--divider-color);
+}
+
+.toolbar-icon {
+  padding: 0 14px;
+}
+
+.mat-button.large {
+  padding: 0 14px;
+  margin:0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-width: 0;
+  height: 40px;
+  line-height: 40px;
+  font-size:24px;
+  text-align: left;
+}
+
+.active {
+  color: var(--primary-color);
+}
+

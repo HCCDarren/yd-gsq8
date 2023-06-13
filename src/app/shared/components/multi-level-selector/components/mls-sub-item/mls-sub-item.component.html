@@ -1,0 +1,10 @@
+<div #containerRef class="item-container sub-item-container" [ngClass]="{'small-text': subItem.name === '特招'}"
+  (mouseover)="onMouseenter()" (mouseleave)="onMouseleave()" (click)="onClick()">
+  <div class="sub-item">
+    <div class="text">
+      <span *ngIf="cfg.debugMode" class="debug-text">{{i}}({{subItem.top + ',' + subItem.left}})<br></span>
+      <app-text-tokens-block [textArray]="subItem.displayNames" [config]="textTokensBlockConfig">
+      </app-text-tokens-block>
+    </div>
+  </div>
+</div>

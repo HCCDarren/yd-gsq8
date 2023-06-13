@@ -1,0 +1,25 @@
+<div *ngIf="keyValues && (sheet.data | filter: sheet.keyColumns : keyValues).length > 0;else elseBlock">
+  <table>
+    <tr>
+      <!-- <th>{{sheet.columnNames[1]}}</th>
+      <th>{{sheet.columnNames[2]}}</th>
+      <th>{{sheet.columnNames[3]}}</th> -->
+      <th style="text-align:left" *ngFor="let column of sheet.valueColumns">{{sheet.columnNames[column.num]}}</th>
+    </tr>
+    <tr *ngFor="let row of sheet.data
+          | filter: sheet.keyColumns : keyValues
+          | sort: sheet.sortColumns">
+      <!-- <td>{{row[1]}}</td>
+      <td>{{row[2]}}</td>
+      <td>{{row[3]}}</td> -->
+      <td style="text-align:left" *ngFor="let column of sheet.valueColumns" [ngClass]="{right: row[column.num] === +row[column.num]}">
+        <!-- {{row[column.num]}} -->
+        <app-markdown [mdData]="row[column.num]"></app-markdown>
+      </td>
+    </tr>
+  </table>
+</div>
+<ng-template #elseBlock>
+  <div>無資料，請重新查詢。</div>
+</ng-template>
+

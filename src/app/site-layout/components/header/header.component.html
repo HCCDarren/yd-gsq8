@@ -1,0 +1,22 @@
+<div class="sticky-header-container">
+  <div class="menu-bottom-border">
+    <div class="menu-container" fxLayout="row" fxLayoutAlign="end center">
+      <div fxFlex class="logo-container">
+        <a [href]="['http://www.yuda.tyc.edu.tw']">
+          <div> <img class="logo" src="assets/image/icons/logo.svg" /> </div>
+        </a>
+      </div>
+      <div fxFlex="grow"></div>
+      <button *ngIf="authStore.state.authenticated" class="menu-icon" mat-icon-button (click)="onToggleSidenav()" #tooltip="matTooltip"
+        matTooltip="請用三橫線按鈕開關選單" matTooltipPosition="below" [matTooltipClass]="{'primary-tooltip-text': true}">
+        <ng-template [ngIf]="sidenavState?.opened" [ngIfElse]="menuIcon">
+          <mat-icon>close</mat-icon>
+        </ng-template>
+        <ng-template #menuIcon>
+          <mat-icon>menu</mat-icon>
+        </ng-template>
+      </button>
+    </div>
+  </div>
+
+</div>

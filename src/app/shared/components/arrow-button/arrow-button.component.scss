@@ -1,0 +1,105 @@
+
+@import 'src/styles/css-var.scss';
+
+$size: 36px;
+$thickness: 5px;
+$angle: 40deg;
+$angleHover: 30deg;
+$angleActive: 25deg;
+
+@mixin arrowTransform( $angle, $x: 0, $y: 0 ) {
+  .line:first-child {
+    transform: translate( $x, $y ) rotate( $angle );
+  }
+  .line:last-child {
+    transform: translate( $x, -$y ) rotate( -$angle );
+  }
+}
+
+.arrow {
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  margin: 0px;
+  padding:0;
+  outline: 0;
+  position: absolute;
+
+  width: $size;
+  height: $size;
+  cursor: pointer;
+
+  transform: translate3d(0,0,0); // fixes flicker in webkit
+  // margin-top: -18px;
+
+
+  -webkit-filter: drop-shadow(0 2px 0px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 0px rgba(0,0,0,0.2));
+  .line {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: $size;
+    height: $thickness;
+    border-radius: $thickness / 2;
+    transition: all 0.15s ease;
+    background: var(--secondary-text-color);
+  }
+
+  &.accent{
+    .line {
+      background: var(--accent-color);
+    }
+  }
+  &.primary{
+    .line {
+      background: var(--primary-color);
+    }
+  }
+}
+
+
+
+
+
+.left {
+  left:5px;
+  @include arrowTransform( $angle, 0, -1px );
+  .line {
+    transform-origin: 0% 50%;
+  }
+  &:hover {
+    @include arrowTransform( $angleHover, 0, -1px );
+  }
+  &:active {
+    @include arrowTransform( $angleActive, 1px, -1px );
+  }
+  &.disabled {
+    @include arrowTransform( 0deg, -5px, 0 );
+  }
+  &:hover.disabled {
+    @include arrowTransform( 0deg, -5px, 0 );
+  }
+}
+
+.right {
+  right:5px;
+  @include arrowTransform( $angle, 0, 1px );
+  .line {
+    transform-origin: 100% 50%
+  }
+  &:hover {
+    @include arrowTransform( $angleHover, 0, 1px );
+  }
+  &:active {
+    @include arrowTransform( $angleActive, 1px, 1px );
+  }
+  &.disabled {
+    @include arrowTransform( 0deg, 5px, 0 );
+  }
+  &:hover.disabled {
+    @include arrowTransform( 0deg, 5px, 0 );
+  }
+
+}
+

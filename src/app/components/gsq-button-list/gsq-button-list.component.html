@@ -1,0 +1,16 @@
+
+<div *ngIf="buttonList && buttonList.links" class="container">
+  <app-section-title *ngIf="buttonList.title" [sectionTitle]="buttonList.title" [borderColor]="'accent'"
+    [hasMore]="false">
+  </app-section-title>
+  <div class="container">
+    <app-markdown *ngIf="buttonList.descripton" [mdData]="buttonList.descripton"></app-markdown>
+    <div class="container-double-bottom"></div>
+    <div fxLayout="column" fxLayout.gt-sm="row" fxLayout.gap="12px">
+      <div *ngFor="let link of buttonList.links">
+        <a mat-raised-button [href]="link.href" color="primary">{{link.label}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,63 @@
+<!-- sheet.columnNames ['_index', 序號	學期	國中	站名	路線	早上上車時間	一學期來回票價]
+sheet.keyColumns = ['2','3'];
+sheet.options = [[1081], ['八德國中','大成國中']] -->
+
+<div *ngIf="keyConfigs">
+  <form [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="keys">
+      <div *ngFor="let keyConfig of keyConfigs; let i=index">
+        <mat-form-field *ngIf="keyConfig.formControl === 'input'" appearance="standard" [floatLabel]="'auto'">
+          <mat-label>{{sheet.columnNames[sheet.keyColumns[i].num]}}</mat-label>
+          <input matInput [type]="keyConfig.inputType" [formControlName]="i">
+          <mat-error *ngIf="keys.controls[i].hasError(keyConfig.inputType) && !keys.controls[i].hasError('required')">
+            請輸入正確的 {{keyConfig.inputType}}
+          </mat-error>
+          <mat-error *ngIf="keys.controls[i].hasError('required')">
+            {{keyConfig.label}}是<strong>必要</strong>的
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="keyConfig.formControl === 'select'" appearance="standard" [floatLabel]="'auto'">
+          <mat-label>{{keyConfig.label}}</mat-label>
+          <mat-select type="text" [formControlName]="i" (selectionChange)="onKeySelectionChange(i, $event)">
+            <mat-option *ngFor="let option of keyConfig.options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div *ngIf="keyConfig.formControl === 'checkbox'">
+          <div class="container-control-top"></div>
+          <label>{{keyConfig.label + ' : '}}&nbsp;&nbsp;</label>
+          <mat-checkbox [formControlName]="i" labelPosition="after">
+            {{keyConfig.inputType}}
+          </mat-checkbox>
+          <br> <br>
+        </div>
+
+        <div *ngIf="keyConfig.formControl === 'radiobutton'">
+          <div class="container-control-top"></div>
+          <label>{{keyConfig.label  + ' : '}}&nbsp;&nbsp;</label>
+          <mat-radio-group [formControlName]="i" (change)="onKeySelectionChange(i, $event)">
+            <mat-radio-button *ngFor="let option of keyConfig.options[i]" [value]="option">
+              {{option}}&nbsp;&nbsp;&nbsp;
+            </mat-radio-button>
+          </mat-radio-group>
+          <br>
+          <br>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <button type="submit" [disabled]="!queryForm.valid" mat-raised-button color="primary">
+      {{buttonLabel ? buttonLabel : '輸入'}}
+    </button>
+    <br><br>
+    <!-- <div>
+      <re-captcha formControlName="recaptcha">
+      </re-captcha>
+    </div> -->
+    <br>
+  </form>
+</div>

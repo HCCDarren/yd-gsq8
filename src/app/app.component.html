@@ -1,0 +1,42 @@
+<!-- ie warning -->
+<div *ngIf="isIeBrowser() " style="padding:10px;background-color:DarkRed; color:white;">
+  本網站不支援 IE 瀏覽器，請使用 Google Chrome
+  <a style="color:white;" href="https://www.google.com/intl/zh-TW/chrome/">(下載)</a>
+  , Mozilla Firefox, Apple Safari, 或 Microsoft Edge 等瀏覽器； 或瀏覽本校
+  <a style="color:white;" href="https://ydweb.yuda.tyc.edu.tw/page/ydw/school/home">
+    舊網站
+  </a>。
+</div>
+
+<!-- 網站內容 -->
+<!-- <app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer> -->
+
+<div class="main-layout">
+
+  <app-header class="sticky-header-bar"></app-header>
+  <!-- [opened]="sidenavState?.opened" -->
+  <mat-sidenav-container class="mat-sidenav-container">
+      <!--  [(opened)]="opened" -->
+    <mat-sidenav #sidenav fixedInViewport="true" mode="side" position="end" [opened]="sidenavState?.opened"
+      [style.width]="isMobile ? '100vw' : '300px'" (openedChange)="onOpenedChange()" class="mat-sidenav">
+      <div #sidenavMenu class="sidenav-menu">
+        <div [ngStyle]="{'height': '64px' }"></div>
+        <app-sidenav></app-sidenav>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <div [ngStyle]="{'height':  '64px'}"></div>
+      <div #routerOutletContainer>
+        <router-outlet></router-outlet>
+      </div>
+
+      <div class="container-double-bottom"></div>
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

@@ -1,0 +1,18 @@
+@import 'src/styles/component.scss';
+
+.mls-container {
+  position: relative;
+  padding:0;
+  margin:0;
+  border:0;
+  overflow:visible;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+

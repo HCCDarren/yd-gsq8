@@ -1,0 +1,15 @@
+<section>
+  <ng-template
+    [ngIf]="(((mlsStore.state$|async).currentIndex) !== index || (!item.subItems || item.subItems.length ===0) ) || isDisabled">
+    <app-mls-item [item]="item" [index]="index"></app-mls-item>
+  </ng-template>
+
+  <ng-template
+    [ngIf]="item.subItems && item.subItems.length>0 && ((mlsStore.state$|async).currentIndex) === index  && !isDisabled">
+    <div *ngFor="let subItem of item.subItems; let i=index">
+      <app-mls-sub-item *ngIf="subItem.name !== spaceHolderText" [subItem]="subItem" [parentName]="item.name" [index]="index" [i]="i">
+      </app-mls-sub-item>
+    </div>
+
+  </ng-template>
+</section>

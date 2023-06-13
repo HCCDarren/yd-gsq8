@@ -1,0 +1,95 @@
+// ******************
+// custom theming
+// ******************
+@import '~@angular/material/theming';
+
+// set theme fonts
+// https://material.angular.io/guide/typography
+// https://github.com/angular/material2/blob/master/src/lib/core/typography/_typography.scss
+$typography: mat-typography-config(
+  $font-family: '"Noto Sans TC", Roboto, "Helvetica Neue", sans-serif',
+  $headline: mat-typography-level(24px, 32px, 400),  // h1
+  $body-1: mat-typography-level(14px, 20px, 400),     // base body text
+);
+@include mat-core($typography);
+
+// set theme colors
+// primary color is the color displayed most frequently
+// accent color is secondary color for accent for emphasis elements
+// warn color is for danger or error
+// https://github.com/angular/material2/blob/master/src/lib/core/theming/_palette.scss
+$primary: mat-palette($mat-red, 700, 100, 900);
+// $accent : mat-palette($mat-indigo, 600, A100, 900);
+// $warn   : mat-palette($mat-orange, A700, A200, 900);
+// $primary: mat-palette($mat-red, 700);
+$accent : mat-palette($mat-indigo, 600, 100, 900);
+$warn   : mat-palette($mat-pink, A200,100,900);
+$theme: mat-light-theme(
+    $primary,
+    $accent,
+    $warn
+);
+@include angular-material-theme($theme);
+
+
+
+// ********************
+// global css variables
+// ********************
+
+// @warn '****sass warn message for debugging *******:`#{map-get($theme, background)}`';
+
+// css unit guideline
+// unit-less: margin:0;  or line-height: 1.5;
+// px, pixel
+// %: relative to a parent container's width or height
+// rem: The the default base font-size of the root element
+// em: the font-size of the current element. default base font-size is 16 pixels
+// vw, vh: 1/100th of the width and height of the viewport
+// vmin, vmax: 1/100th of the smaller and larger side length of the viewport
+// ex, ch: height of a lower case x, and the width of the number 0. Rarely used.
+//
+// rem: for most things
+// %, associated with height and width of an element
+// px: for borders, rarely use
+// vh, vw, vmin, vmax: for larger layout
+
+:root {
+  --primary-color: #{mat-color($primary)};
+  --primary-lighter-color: #{mat-color($primary, lighter)};
+  --primary-darker-color: #{mat-color($primary, darker)};
+  --accent-color: #{mat-color($accent)};
+  --accent-lighter-color: #{mat-color($accent, lighter)};
+  --accent-darker-color: #{mat-color($accent, darker)};
+  --warn-color: #{mat-color($warn)};
+  --warn-lighter-color: #{mat-color($warn, lighter)};
+  --warn-darker-color: #{mat-color($warn, darker)};
+  --background-color: #{mat-color( map-get($theme, background), background)};
+  --foreground-color: #{mat-color( map-get($theme, foreground), base)};
+  --text-color: #{mat-color( map-get($theme, foreground), text)};
+  --secondary-text-color: #{mat-color( map-get($theme, foreground), secondary-text)};
+  --divider-color: #{mat-color( map-get($theme, foreground), divider)};
+  --breakpoint-max: 959px;
+  --breakpoint-min: 960px;
+  --gap: 2vw;
+  --lgap: 16px;
+}
+
+
+// ******************
+// global css setting
+// ******************
+@import 'src/styles/css-var.scss';
+
+html {
+  height: 100%;
+  font-family: 'Noto Sans TC', 'Roboto', sans-serif, monospace;
+  // background-color: $divider-color;
+  background-color: white!important;
+}
+
+body {
+  margin: 0;
+  background-color: white!important;
+  height: 100%;
+}

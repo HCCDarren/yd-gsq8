@@ -1,0 +1,30 @@
+
+// https://github.com/jfcere/ngx-markdown/issues/56#issuecomment-373722506
+@import 'src/styles/css-var.scss';
+
+
+markdown ::ng-deep h1 {
+  color: $primary-color;
+}
+
+
+markdown ::ng-deep table {
+  border-collapse: collapse;
+  width: 100%;
+
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  tr:nth-child(even){background-color: #f2f2f2;}
+
+  // tr:hover {background-color: #ddd;}
+
+  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: $divider-color;
+    color: $text-color;
+  }
+}
